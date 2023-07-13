@@ -281,13 +281,13 @@ main .sobre {
 
 /* RESPONSIVO */
 
-@media(max-width: 992px) {
+@media(max-width: 350px) {
     .section-div img {
         display: none;
     }
 
     .section-div {
-        background-image: url(img/pessoa\ ilustrativa.png);
+        background-image: url(imgs/ue.png);
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -320,6 +320,8 @@ main .sobre {
         right: 20px;
         animation: sobeSecao .8s ease-in-out forwards;
     }
+
+
 }
 
 
@@ -596,7 +598,7 @@ main .sobre {
     font-family: 'Poppins';
 }
 
-@media (max-width: 1089px) {
+@media (max-width: 768px) {
 
     .resume_gerenico .experience_content,
     .education_content {
