@@ -1,0 +1,127 @@
+<section id="about" class="about section">
+  <div class="container">
+
+    <app-section-title overline="Who I Am" title="About Me"
+      subtitle="Backend Developer building scalable systems and exploring AI-driven solutions." />
+
+    <div class="about-grid">
+
+      <div class="about-left" [@fadeLeft]>
+        <div class="img-frame">
+          <img src="assets/imgs/ue.png" alt="Marcos Santos" />
+          <div class="img-accent"></div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-row">
+            <span class="info-icon">🎂</span>
+            <div>
+              <p class="info-label">Age</p>
+              <p class="info-val">22 years old</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">🎓</span>
+            <div>
+              <p class="info-label">Degree</p>
+              <p class="info-val">ADS — Anhanguera (2025)</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">📍</span>
+            <div>
+              <p class="info-label">Location</p>
+              <p class="info-val">Brazil 🇧🇷</p>
+            </div>
+          </div>
+          <a href="mailto:marcosvbsantos26@gmail.com" class="email-link">
+            📩 marcosvbsantos26&#64;gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="about-right" [@fadeRight]>
+        <h3 class="about-heading">Backend Developer &amp; Generative AI Enthusiast</h3>
+
+        <p class="about-text">
+          Developer with experience in full-stack development and technical support,
+          working on corporate systems and connecting business needs with technology solutions.
+          Solid foundation in backend development using <strong>.NET</strong>, API integration,
+          data handling and process automation.
+        </p>
+
+        <p class="about-text">
+          Currently working as a Junior Developer, building applications with
+          <strong>C# (.NET MVC)</strong> and <strong>Angular</strong>. Expanding my knowledge in
+          <strong>Generative AI</strong>, exploring LLM integrations and intelligent
+          automation to improve workflows and system efficiency.
+        </p>
+
+        <div class="highlights">
+          <div class="highlight-card" *ngFor="let h of highlights">
+            <span class="hl-icon">{{ h.icon }}</span>
+            <div>
+              <p class="hl-label">{{ h.label }}</p>
+              <p class="hl-desc">{{ h.desc }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-block">
+          <h4 class="skills-label">Core Skills</h4>
+          <div class="skill-item" *ngFor="let skill of skills">
+            <div class="skill-header">
+              <div class="skill-name-group">
+                <span class="skill-icon" *ngIf="skill.iconType === 'emoji'">
+                  {{ skill.icon }}
+                </span>
+
+                <svg *ngIf="skill.iconType === 'svg' && skill.icon === 'js'" class="skill-svg" width="16" height="16"
+                  viewBox="0 0 32 32" fill="none">
+                  <rect width="32" height="32" rx="4" fill="#F7DF1E" />
+                  <path
+                    d="M9 24.5l2.4-1.45c.46.82.88 1.51 1.88 1.51.97 0 1.58-.38 1.58-1.85V13.5h2.95v9.27c0 3.05-1.79 4.44-4.4 4.44-2.36 0-3.73-1.22-4.41-2.71zM20 24.2l2.4-1.39c.63 1.03 1.45 1.79 2.9 1.79 1.22 0 2-.61 2-1.45 0-1.01-.8-1.37-2.14-1.96l-.74-.32c-2.12-.9-3.53-2.03-3.53-4.42 0-2.2 1.67-3.88 4.29-3.88 1.86 0 3.2.65 4.16 2.34l-2.28 1.46c-.5-.9-1.05-1.26-1.88-1.26-.86 0-1.4.54-1.4 1.26 0 .88.54 1.24 1.8 1.79l.74.32c2.5 1.07 3.91 2.16 3.91 4.61 0 2.64-2.07 4.09-4.86 4.09-2.72 0-4.48-1.3-5.37-2.98z"
+                    fill="#000" />
+                </svg>
+
+                <svg *ngIf="skill.iconType === 'svg' && skill.icon === 'angular'" class="skill-svg" width="16"
+                  height="16" viewBox="0 0 32 32" fill="none">
+                  <path d="M16 2L2 7.1l2.18 18.9L16 31l11.82-5L30 7.1 16 2z" fill="#DD0031" />
+                  <path d="M16 2v29l11.82-5L30 7.1 16 2z" fill="#C3002F" />
+                  <path
+                    d="M16 6.4L8.36 23.6h2.8l1.55-3.88h6.56l1.55 3.88h2.8L16 6.4zm2.28 10.92h-4.56L16 10.36l2.28 6.96z"
+                    fill="#fff" />
+                </svg>
+
+                <svg *ngIf="skill.iconType === 'svg' && skill.icon === 'csharp'" class="skill-svg" width="16"
+                  height="16" viewBox="0 0 32 32" fill="none">
+                  <path d="M16 2L4 9v14l12 7 12-7V9L16 2z" fill="#68217A" />
+                  <text x="16" y="20" text-anchor="middle" fill="white" font-size="10" font-weight="bold">C#</text>
+                </svg>
+
+                <svg *ngIf="skill.iconType === 'svg' && skill.icon === 'sql'" class="skill-svg" width="16" height="16"
+                  viewBox="0 0 24 24" fill="none">
+                  <ellipse cx="12" cy="5" rx="9" ry="3" fill="#336791" />
+                  <path d="M3 5v10c0 1.66 4 3 9 3s9-1.34 9-3V5" fill="#336791" />
+                </svg>
+
+                <span *ngIf="skill.iconType === 'svg' && skill.icon === 'c'" class="skill-letter-icon">
+                  C
+                </span>
+
+                <span class="skill-name">
+                  {{ skill.name }}
+                </span>
+
+              </div>
+              <span class="skill-pct">{{ skill.level }}%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" [style.width.%]="skill.level"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

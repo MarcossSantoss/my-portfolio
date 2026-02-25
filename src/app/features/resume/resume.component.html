@@ -1,0 +1,80 @@
+<section id="resume" class="resume section">
+  <div class="container">
+
+    <app-section-title overline="My Journey" title="Resume"
+      subtitle="Experience and education that shaped my technical foundation." />
+
+    <div class="resume-grid">
+
+      <div class="timeline-col" [@fadeUp]>
+        <div class="col-header">
+          <div class="col-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
+          </div>
+          <h3 class="col-title">Experience</h3>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item" *ngFor="let e of experience; let last = last">
+            <div class="tl-marker">
+              <div class="tl-dot"></div>
+              <div class="tl-line" *ngIf="!last"></div>
+            </div>
+            <div class="tl-body">
+              <span class="tl-period">{{ e.period }}</span>
+              <h4 class="tl-title">{{ e.title }}</h4>
+              <p class="tl-org">{{ e.org }}</p>
+              <p class="tl-desc">{{ e.desc }}</p>
+              <div class="tl-tags" *ngIf="e.tags">
+                <span class="tl-tag" *ngFor="let t of e.tags">{{ t }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-col" [@fadeUp]>
+        <div class="col-header">
+          <div class="col-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg>
+          </div>
+          <h3 class="col-title">Education</h3>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item" *ngFor="let e of education; let last = last">
+            <div class="tl-marker">
+              <div class="tl-dot"></div>
+              <div class="tl-line" *ngIf="!last"></div>
+            </div>
+            <div class="tl-body">
+              <span class="tl-period">{{ e.period }}</span>
+              <h4 class="tl-title">{{ e.title }}</h4>
+              <p class="tl-org">{{ e.org }}</p>
+              <p class="tl-desc">{{ e.desc }}</p>
+              <div class="tl-tags" *ngIf="e.tags">
+                <span class="tl-tag" *ngFor="let t of e.tags">{{ t }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tech-cloud" [@fadeUp]>
+      <p class="cloud-label">Technologies &amp; Tools</p>
+      <div class="cloud-pills">
+        <span class="pill" [class.pill-primary]="t.tier === 'primary'" [class.pill-secondary]="t.tier === 'secondary'"
+          *ngFor="let t of techStack">{{ t.name }}</span>
+      </div>
+    </div>
+
+  </div>
+</section>

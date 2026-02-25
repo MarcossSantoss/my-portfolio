@@ -1,0 +1,82 @@
+<section id="home" class="hero">
+
+  <div class="hero-bg" aria-hidden="true">
+    <div class="grid-lines"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="noise"></div>
+  </div>
+
+  <div class="hero-inner container">
+
+    <div class="hero-content" [@fadeLeft]>
+      <h1 class="hero-heading">
+        <span class="greeting">Hi, I'm</span>
+        <span class="name">Marcos Santos</span>
+        <span class="role-line">
+          {{ displayedText }}<span class="cursor" [class.blink]="!typing">|</span>
+        </span>
+      </h1>
+
+      <p class="hero-bio">
+        22-year-old developer with hands-on experience in <strong>.NET</strong>,
+        <strong>Angular</strong> with practical exposure to <strong>Generative AI integrations</strong>.
+        Interested in building intelligent automation and AI-driven solutions.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">.NET / C#</span>
+        <span class="tag">Angular</span>
+        <span class="tag">LLMs & AI Agents</span>
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="assets/curriculo.pdf" target="_blank" class="btn-primary">
+          Download CV
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7,10 12,15 17,10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+        </a>
+        <a href="#projects" class="btn-ghost">View Projects</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat" *ngFor="let s of stats; let last = last">
+          <span class="stat-value">{{ s.value }}</span>
+          <span class="stat-label">{{ s.label }}</span>
+          <div class="stat-sep" *ngIf="!last"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" [@fadeRight]>
+      <div class="avatar-frame">
+        <img src="assets/imgs/ue.png" alt="Marcos Santos — Backend Developer" />
+
+        <div class="chip chip-top">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--c-accent-bright)">
+            <polyline points="16,18 22,12 16,6" />
+            <polyline points="8,6 2,12 8,18" />
+          </svg>
+          Backend Dev
+        </div>
+        <div class="chip chip-bot">
+          🤖 AI Integration
+        </div>
+
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>

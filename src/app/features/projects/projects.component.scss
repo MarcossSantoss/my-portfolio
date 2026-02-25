@@ -1,0 +1,46 @@
+.projects {
+  background: var(--c-bg-alt);
+}
+
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  font-family: var(--f-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 8px 22px;
+  border-radius: 100px;
+  border: 1px solid var(--c-border);
+  background: transparent;
+  color: var(--c-text-2);
+  transition: all 180ms ease;
+
+  &:hover {
+    border-color: var(--c-border-accent);
+    color: var(--c-text-1);
+  }
+
+  &.active {
+    background: var(--c-accent);
+    border-color: var(--c-accent);
+    color: #fff;
+    box-shadow: 0 0 20px var(--c-accent-glow);
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.5rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}

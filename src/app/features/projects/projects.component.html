@@ -1,0 +1,17 @@
+<section id="projects" class="projects section">
+  <div class="container">
+
+    <app-section-title overline="My Work" title="Projects"
+      subtitle="A curated selection of projects spanning web, backend and games." />
+
+    <div class="filter-bar" [@fadeUp]>
+      <button *ngFor="let f of filters" class="filter-btn" [class.active]="svc.activeCategory() === f.value"
+        (click)="setFilter(f.value)">{{ f.label }}</button>
+    </div>
+
+    <div class="projects-grid" [@listStagger]="svc.filteredProjects().length">
+      <app-project-card *ngFor="let p of svc.filteredProjects(); trackBy: trackById" [project]="p" />
+    </div>
+
+  </div>
+</section>

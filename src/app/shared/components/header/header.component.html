@@ -1,0 +1,32 @@
+<header [@navIn] [class.scrolled]="scrolled()">
+  <div class="header-inner container">
+
+    <a href="#home" class="logo" (click)="closeMenu()">
+      <span class="logo-text">Port<em>folio</em></span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Navegação primária">
+      <a *ngFor="let link of navLinks" [href]="link.href" class="nav-link">{{ link.label }}</a>
+      <a href="assets/curriculo.pdf" target="_blank" class="nav-cta">
+        Download CV
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7,10 12,15 17,10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+      </a>
+    </nav>
+
+    <button class="nav-toggle" [class.open]="menuOpen()" (click)="toggle()" aria-label="Toggle menu"
+      [attr.aria-expanded]="menuOpen()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile" [class.active]="menuOpen()" aria-label="Navegação mobile">
+    <a *ngFor="let link of navLinks" [href]="link.href" class="nav-link" (click)="closeMenu()">{{ link.label }}</a>
+    <a href="assets/curriculo.pdf" target="_blank" class="nav-cta mobile" (click)="closeMenu()">
+      Download CV
+    </a>
+  </nav>
+</header>

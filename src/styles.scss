@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
+
+:root {
+  --c-accent: #7c3aed;
+  --c-accent-bright: #8b5cf6;
+  --c-accent-dim: rgba(124, 58, 237, 0.45);
+  --c-accent-glow: rgba(124, 58, 237, 0.18);
+  --c-accent-subtle: rgba(124, 58, 237, 0.08);
+
+  --c-bg: #050508;
+  --c-bg-alt: #08080e;
+  --c-surface: #0e0c18;
+  --c-surface-alt: #13111f;
+  --c-surface-raised: #1a1728;
+
+  --c-border: rgba(255, 255, 255, 0.06);
+  --c-border-accent: rgba(124, 58, 237, 0.35);
+
+  --c-text-1: #f0eeff;
+  --c-text-2: #9b92be;
+  --c-text-3: #5a5476;
+
+  --c-green: #22c55e;
+
+  --f-display: 'Clash Display', sans-serif;
+  --f-body: 'DM Sans', sans-serif;
+
+  --space-section: 7rem;
+
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 28px;
+
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-text-1);
+  font-family: var(--f-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--c-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--c-accent);
+  border-radius: 3px;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.35);
+  color: var(--c-text-1);
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @media (max-width: 640px) {
+    padding: 0 1.25rem;
+  }
+}
+
+.section {
+  padding: var(--space-section) 0;
+}
