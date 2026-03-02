@@ -10,8 +10,8 @@ export class ProjectService {
       title: 'Feature Flag API (Backend)',
       description: 'RESTful API for managing real-time feature flag rollouts. Implements Google OAuth authentication, JWT validation, percentage-based rollout logic and Redis in-memory caching for instant configuration updates without rebuild or restart.',
       thumbnail: 'assets/imgs/feature-flag-back.png',
-      // preview: 'assets/previews/feature-flag-back.mp4', // Adicione o vídeo/GIF quando tiver
-      // previewType: 'video',
+      preview: 'assets/previews/feature-flag-back.mp4',
+      previewType: 'video',
       technologies: ['ASP.NET Core', 'Redis', 'JWT', 'Google OAuth'],
       githubUrl: 'LINK_BACKEND_AQUI',
       category: 'backend',
