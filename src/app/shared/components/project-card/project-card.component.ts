@@ -1,9 +1,10 @@
 import {
   Component, Input, ViewChild,
-  ElementRef, signal,
+  ElementRef, signal, inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../../../core/models/project.model';
+import { ModalService } from 'src/app/core/services/modal.service';
 import { overlayReveal } from '../../animations/portfolio.animations';
 
 @Component({
@@ -18,14 +19,20 @@ export class ProjectCardComponent {
   @Input({ required: true }) project!: Project;
   @ViewChild('videoRef') videoRef?: ElementRef<HTMLVideoElement>;
 
+  private readonly modalSvc = inject(ModalService);
   hovered = signal(false);
+
+  /** Clique no card → abre modal */
+  openModal(): void {
+    this.modalSvc.open(this.project);
+  }
 
   onEnter(): void {
     this.hovered.set(true);
     if (this.project.previewType === 'video' && this.videoRef?.nativeElement) {
       const v = this.videoRef.nativeElement;
       v.currentTime = 0;
-      v.play().catch(() => { });
+      v.play().catch(() => {/* autoplay bloqueado — silencia */});
     }
   }
 

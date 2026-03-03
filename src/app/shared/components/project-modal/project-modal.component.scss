@@ -1,0 +1,263 @@
+// ─── Backdrop ────────────────────────────────────────────
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(3, 2, 10, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: default; // backdrop em si não tem cursor de ponteiro
+}
+
+// ─── Panel ───────────────────────────────────────────────
+.modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90svh;
+  overflow-y: auto;
+  border-radius: 20px;
+  background: var(--c-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(124, 58, 237, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  // Scrollbar sutil dentro do modal
+  &::-webkit-scrollbar       { width: 3px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: var(--c-accent-dim); border-radius: 3px; }
+}
+
+// ─── Close button ─────────────────────────────────────────
+.btn-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 180ms ease;
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    background: rgba(124, 58, 237, 0.4);
+    border-color: var(--c-border-accent);
+    color: #fff;
+    transform: rotate(90deg);
+  }
+}
+
+// ─── Media area ───────────────────────────────────────────
+.modal-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+.modal-video,
+.modal-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; // contain para não cortar o conteúdo real
+  background: #000;
+  display: block;
+}
+
+// Fallback sem preview
+.modal-no-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35) blur(2px);
+  }
+}
+
+.no-preview-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--f-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+// ─── Content area ─────────────────────────────────────────
+.modal-content {
+  padding: 1.75rem 2rem 2rem;
+}
+
+// Header row
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.category-badge {
+  font-family: var(--f-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-accent-bright);
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid var(--c-border-accent);
+  padding: 3px 11px;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.modal-title {
+  font-family: var(--f-display);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--c-text-1);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+// Action buttons
+.header-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: var(--r-sm);
+  transition: all 200ms ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.action-ghost {
+  color: var(--c-text-1);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.action-primary {
+  color: #fff;
+  background: var(--c-accent);
+  border: 1px solid var(--c-accent);
+
+  &:hover {
+    background: var(--c-accent-bright);
+    box-shadow: 0 0 22px var(--c-accent-glow);
+    transform: translateY(-1px);
+  }
+}
+
+// Description
+.modal-desc {
+  font-family: var(--f-body);
+  font-size: 0.93rem;
+  color: var(--c-text-2);
+  line-height: 1.85;
+  margin-bottom: 1.75rem;
+}
+
+// Tech stack
+.tech-section {
+  border-top: 1px solid var(--c-border);
+  padding-top: 1.25rem;
+}
+
+.tech-label {
+  font-family: var(--f-body);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  margin-bottom: 0.875rem;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tech-tag {
+  font-family: var(--f-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--c-text-1);
+  background: var(--c-surface-raised, #1a1728);
+  border: 1px solid var(--c-border);
+  padding: 5px 14px;
+  border-radius: 100px;
+  transition: border-color 160ms ease;
+
+  &:hover { border-color: var(--c-border-accent); }
+}
+
+// ─── Responsive ───────────────────────────────────────────
+@media (max-width: 600px) {
+  .modal-backdrop { padding: 0; align-items: flex-end; }
+
+  .modal-panel {
+    border-radius: 20px 20px 0 0;
+    max-height: 92svh;
+    border-bottom: none;
+  }
+
+  .modal-media { border-radius: 20px 20px 0 0; }
+
+  .modal-header { flex-direction: column; }
+
+  .header-actions { width: 100%; }
+
+  .action-btn { flex: 1; justify-content: center; }
+}
